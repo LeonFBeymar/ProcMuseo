@@ -4,6 +4,8 @@ import {
     eliminarVisitas
 } from '../controllers/visitas.controllers'
 
+const router = Router()
+
 router.get('/visitas',leerVisitas);
 
 router.post('/visitas', crearVisitas);

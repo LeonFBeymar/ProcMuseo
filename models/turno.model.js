@@ -1,10 +1,6 @@
 import mongoose from "mongoose"
 
 const TurnoSchema = new mongoose.Schema({
-    id: {
-        type: Int,
-        required: true
-    },
     Dia: {
         type: Date,
         required: true

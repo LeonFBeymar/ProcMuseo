@@ -4,6 +4,9 @@ import {
     eliminarVisitante
 } from '../controllers/visitante.controllers'
 
+
+const router = Router()
+
 router.get('/visitante',leerVisitante);
 
 router.post('/visitante', crearVisitante);

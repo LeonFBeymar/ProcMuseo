@@ -4,6 +4,8 @@ import {
     eliminarTurno
 } from '../controllers/turno.controllers'
 
+const router = Router()
+
 router.get('/turno',leerTurno);
 
 router.post('/turno', crearTurno);

@@ -1,10 +1,6 @@
 import mongoose from "mongoose"
 
 const SalaSchema = new mongoose.Schema({
-    id: {
-        type: Int,
-        required: true
-    },
     nombre: {
         type: String,
         required: true

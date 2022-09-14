@@ -1,4 +1,4 @@
-import exposicion from '../models/exposicion.model'
+import Exposicion from '../models/exposicion.model'
 
 export const leerExposicion = async (req, res) => {
     try {

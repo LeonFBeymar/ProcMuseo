@@ -4,6 +4,8 @@ import {
     eliminarUsuario
 } from '../controllers/usuario.controllers'
 
+const router = Router()
+
 router.get('/usuario',leerUsuario);
 
 router.post('/usuario', crearUsuario);

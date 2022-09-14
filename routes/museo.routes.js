@@ -4,6 +4,7 @@ import {
     eliminarMuseo
 } from '../controllers/museo.controllers'
 
+const router = Router()
 router.get('/museo',leerMuseo);
 
 router.post('/museo', crearMuseo);

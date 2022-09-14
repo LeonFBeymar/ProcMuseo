@@ -1,10 +1,6 @@
 import mongoose from "mongoose";
 
 const usuarioSchema = new mongoose.Schema({
-    id: {
-        type: int,
-        required: true
-    },
     email: {
         type: String,
         required: true

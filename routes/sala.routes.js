@@ -4,6 +4,7 @@ import {
     eliminarSala
 } from '../controllers/Sala.controllers'
 
+const router = Router()
 router.get('/sala',leerSala);
 
 router.post('/sala', crearSala);

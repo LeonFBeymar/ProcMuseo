@@ -4,6 +4,7 @@ import {
     eliminarGuia
 } from '../controllers/guia.controllers'
 
+const router = Router()
 router.get('/guia',leerGuia);
 
 router.post('/guia', crearGuia);

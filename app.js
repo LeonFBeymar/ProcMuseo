@@ -26,7 +26,17 @@ app.use(json())
 //imprime las acciones hacia cada endopoint en la terminal
 app.use(morgan('dev'))
 //endpoints
-app.use(museonaturales)
+app.use(exposicion)
+app.use(guia)
+app.use(museo)
+app.use(sala)
+app.use(turno)
+app.use(usuario)
+app.use(visitante)
+app.use(visitas)
+
+
+
 
 app.listen(port, () => {
     console.log(`Escuchando request en ${port}`)

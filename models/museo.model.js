@@ -1,6 +1,6 @@
 import mongoose from "mongoose"
 
-const mueseoSchema = new mongoose.Schema({
+const museoSchema = new mongoose.Schema({
     nombre: {
         type: String,
         required: true
