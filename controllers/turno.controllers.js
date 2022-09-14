@@ -31,7 +31,7 @@ export const actualizarTurno = async (req, res) => {
     }
 }
 
-export const borrarTurno = async (req, res) => {
+export const eliminarTurno = async (req, res) => {
     try {
         let idTurno = req.params.id
         await Turno.findOneAndRemove({ id: idTurno })

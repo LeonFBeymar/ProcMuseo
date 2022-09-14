@@ -1,6 +1,6 @@
 import Usuario from '../models/usuario.model'
 
-export const leerUsuarios = async (req, res) => {
+export const leerUsuario = async (req, res) => {
     try {
         const usuario = await Usuario.find()
         res.send(usuario)
@@ -33,7 +33,7 @@ export const actualizarUsuario = async (req, res) => {
     }
 }
 
-export const borrarUsuario = async (req, res) => {
+export const eliminarUsuario = async (req, res) => {
     try {
         let idUsuario = req.params.id
         //busco el Usuario con el id y lo elimino

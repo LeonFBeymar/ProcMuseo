@@ -5,7 +5,15 @@ import morgan from 'morgan'
 //importa archivo .env - variables de entorno
 import 'dotenv/config'
 //importar el archivo usuarioRoutes del archivo usuario.routes.js
-import museonaturales from './routes/museonaturales.routes'
+import exposicion from './routes/exposicion.routes'
+import guia from './routes/guia.routes'
+import museo from './routes/museo.routes'
+import sala from './routes/sala.routes'
+import turno from './routes/turno.routes'
+import usuario from './routes/usuario.routes'
+import visitante from './routes/visitante.routes'
+import visitas from './routes/visitas.routes'
+
 
 //crea la aplicacion 
 const app = express()

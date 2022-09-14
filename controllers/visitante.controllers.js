@@ -1,6 +1,6 @@
 import Visitante from '../models/visitante.model'
 
-export const leervisitantes = async (req, res) => {
+export const leerVisitante = async (req, res) => {
     try {
         const visitante = await Visitante.find()
         res.send(visitante)
@@ -9,7 +9,7 @@ export const leervisitantes = async (req, res) => {
     }
 }
 
-export const crearvisitante = async (req, res) => {
+export const crearVisitante = async (req, res) => {
     try {
         const visitante = req.body
         await Visitante.create(visitante)
@@ -19,7 +19,7 @@ export const crearvisitante = async (req, res) => {
     }
 }
 
-export const actualizarvisitante = async (req, res) => {
+export const actualizarVisitante = async (req, res) => {
     try {
         let idvisitante = req.params.id
         let visitante = req.body
@@ -33,7 +33,7 @@ export const actualizarvisitante = async (req, res) => {
     }
 }
 
-export const borrarvisitante = async (req, res) => {
+export const eliminarVisitante = async (req, res) => {
     try {
         let idvisitante = req.params.id
         //busco el visitante con el id y lo elimino

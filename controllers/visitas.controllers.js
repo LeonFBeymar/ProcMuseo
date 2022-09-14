@@ -33,7 +33,7 @@ export const actualizarVisitas = async (req, res) => {
     }
 }
 
-export const borrarVisitas = async (req, res) => {
+export const eliminarVisitas = async (req, res) => {
     try {
         let idVisitas = req.params.id
         //busco el Visitas con el id y lo elimino
