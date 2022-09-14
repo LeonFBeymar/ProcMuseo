@@ -1,9 +1,9 @@
-import Turno from '../models/Turno.model'
+import Turno from '../models/turno.model'
 
 export const leerTurnos = async (req, res) => {
     try {
-        const Turno = await Turno.find()
-        res.send(Turno)
+        const turno = await Turno.find()
+        res.send(turno)
     } catch (err) {
         res.status(500).send(err)
     }
@@ -11,8 +11,8 @@ export const leerTurnos = async (req, res) => {
 
 export const crearTurno = async (req, res) => {
     try {
-        const Turno = req.body
-        await Turno.create(Turno)
+        const turno = req.body
+        await Turno.create(turno)
         res.status(201).send(Turno)
     } catch (err) {
         res.status(500).send(err)
@@ -22,12 +22,10 @@ export const crearTurno = async (req, res) => {
 export const actualizarTurno = async (req, res) => {
     try {
         let idTurno = req.params.id
-        let Turno = req.body
-        //busco y actualizo el Turno
-        await Turno.findOneAndUpdate({ id: idTurno }, Turno)
-        //busco el Turno modificado por el id
-        const TurnoResponse = await Turno.findOne({ id: idTurno })
-        res.send(TurnoResponse)
+        let turno = req.body
+        await Turno.findOneAndUpdate({ id: idTurno }, turno)
+        const turnoResponse = await Turno.findOne({ id: idTurno })
+        res.send(turnoResponse)
     } catch (err) {
         res.status(500).send(err)
     }
@@ -36,7 +34,6 @@ export const actualizarTurno = async (req, res) => {
 export const borrarTurno = async (req, res) => {
     try {
         let idTurno = req.params.id
-        //busco el Turno con el id y lo elimino
         await Turno.findOneAndRemove({ id: idTurno })
         res.status(204).send()
     } catch (err) {
