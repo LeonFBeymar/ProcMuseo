@@ -1,6 +1,6 @@
 import Turno from '../models/turno.model'
 
-export const leerTurnos = async (req, res) => {
+export const leerTurno = async (req, res) => {
     try {
         const turno = await Turno.find()
         res.send(turno)

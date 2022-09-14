@@ -15,6 +15,9 @@ import visitante from './routes/visitante.routes'
 import visitas from './routes/visitas.routes'
 
 
+import database from './database'
+
+
 //crea la aplicacion 
 const app = express()
 
@@ -34,9 +37,6 @@ app.use(turno)
 app.use(usuario)
 app.use(visitante)
 app.use(visitas)
-
-
-
 
 app.listen(port, () => {
     console.log(`Escuchando request en ${port}`)
