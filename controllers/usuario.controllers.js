@@ -2,8 +2,8 @@ import Usuario from '../models/usuario.model'
 
 export const leerUsuarios = async (req, res) => {
     try {
-        const Usuario = await Usuario.find()
-        res.send(Usuario)
+        const usuario = await Usuario.find()
+        res.send(usuario)
     } catch (err) {
         res.status(500).send(err)
     }
@@ -11,9 +11,9 @@ export const leerUsuarios = async (req, res) => {
 
 export const crearUsuario = async (req, res) => {
     try {
-        const Usuario = req.body
-        await Usuario.create(Usuario)
-        res.status(201).send(Usuario)
+        const usuario = req.body
+        await Usuario.create(usuario)
+        res.status(201).send(usuario)
     } catch (err) {
         res.status(500).send(err)
     }
@@ -22,9 +22,9 @@ export const crearUsuario = async (req, res) => {
 export const actualizarUsuario = async (req, res) => {
     try {
         let idUsuario = req.params.id
-        let Usuario = req.body
+        let usuario = req.body
         //busco y actualizo el Usuario
-        await Usuario.findOneAndUpdate({ id: idUsuario }, Usuario)
+        await Usuario.findOneAndUpdate({ id: idUsuario }, usuario)
         //busco el Usuario modificado por el id
         const UsuarioResponse = await Usuario.findOne({ id: idUsuario })
         res.send(UsuarioResponse)

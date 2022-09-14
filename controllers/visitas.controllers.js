@@ -2,42 +2,42 @@ import Visitas from '../models/visitas.model'
 
 export const leerVisitas = async (req, res) => {
     try {
-        const Turno = await Turno.find()
-        res.send(Turno)
+        const Visitas = await Visitas.find()
+        res.send(Visitas)
     } catch (err) {
         res.status(500).send(err)
     }
 }
 
-export const crearTurno = async (req, res) => {
+export const crearVisitas = async (req, res) => {
     try {
-        const Turno = req.body
-        await Turno.create(Turno)
-        res.status(201).send(Turno)
+        const visitas = req.body
+        await Visitas.create(visitas)
+        res.status(201).send(visitas)
     } catch (err) {
         res.status(500).send(err)
     }
 }
 
-export const actualizarTurno = async (req, res) => {
+export const actualizarVisitas = async (req, res) => {
     try {
-        let idTurno = req.params.id
-        let Turno = req.body
-        //busco y actualizo el Turno
-        await Turno.findOneAndUpdate({ id: idTurno }, Turno)
-        //busco el Turno modificado por el id
-        const TurnoResponse = await Turno.findOne({ id: idTurno })
-        res.send(TurnoResponse)
+        let idVisitas = req.params.id
+        let visitas = req.body
+        //busco y actualizo el Visitas
+        await Visitas.findOneAndUpdate({ id: idVisitas }, visitas)
+        //busco el Visitas modificado por el id
+        const VisitasResponse = await Visitas.findOne({ id: idVisitas })
+        res.send(VisitasResponse)
     } catch (err) {
         res.status(500).send(err)
     }
 }
 
-export const borrarTurno = async (req, res) => {
+export const borrarVisitas = async (req, res) => {
     try {
-        let idTurno = req.params.id
-        //busco el Turno con el id y lo elimino
-        await Turno.findOneAndRemove({ id: idTurno })
+        let idVisitas = req.params.id
+        //busco el Visitas con el id y lo elimino
+        await Visitas.findOneAndRemove({ id: idVisitas })
         res.status(204).send()
     } catch (err) {
         res.status(500).send(err)
