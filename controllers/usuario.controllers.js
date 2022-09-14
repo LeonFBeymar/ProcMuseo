@@ -1,0 +1,45 @@
+import Usuario from '../models/Usuario.model'
+
+export const leerUsuarios = async (req, res) => {
+    try {
+        const Usuario = await Usuario.find()
+        res.send(Usuario)
+    } catch (err) {
+        res.status(500).send(err)
+    }
+}
+
+export const crearUsuario = async (req, res) => {
+    try {
+        const Usuario = req.body
+        await Usuario.create(Usuario)
+        res.status(201).send(Usuario)
+    } catch (err) {
+        res.status(500).send(err)
+    }
+}
+
+export const actualizarUsuario = async (req, res) => {
+    try {
+        let idUsuario = req.params.id
+        let Usuario = req.body
+        //busco y actualizo el Usuario
+        await Usuario.findOneAndUpdate({ id: idUsuario }, Usuario)
+        //busco el Usuario modificado por el id
+        const UsuarioResponse = await Usuario.findOne({ id: idUsuario })
+        res.send(UsuarioResponse)
+    } catch (err) {
+        res.status(500).send(err)
+    }
+}
+
+export const borrarUsuario = async (req, res) => {
+    try {
+        let idUsuario = req.params.id
+        //busco el Usuario con el id y lo elimino
+        await Usuario.findOneAndRemove({ id: idUsuario })
+        res.status(204).send()
+    } catch (err) {
+        res.status(500).send(err)
+    }
+};
