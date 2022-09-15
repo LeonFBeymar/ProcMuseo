@@ -13,10 +13,8 @@ import turno from './routes/turno.routes'
 import usuario from './routes/usuario.routes'
 import visitante from './routes/visitante.routes'
 import visitas from './routes/visitas.routes'
-
-
+const cors = require('cors');
 import database from './database'
-
 
 //crea la aplicacion 
 const app = express()
@@ -28,6 +26,8 @@ const port = process.env.PORT
 app.use(json())
 //imprime las acciones hacia cada endopoint en la terminal
 app.use(morgan('dev'))
+
+app.use(cors())
 //endpoints
 app.use(exposicion)
 app.use(guia)
@@ -37,6 +37,8 @@ app.use(turno)
 app.use(usuario)
 app.use(visitante)
 app.use(visitas)
+
+//habilitando los cors
 
 app.listen(port, () => {
     console.log(`Escuchando request en ${port}`)
