@@ -4,25 +4,27 @@ document.addEventListener('DOMContentLoaded', () => {
     
     axios.get(url)
         .then(response => {
-            console.log(response.data[0].nombre)
+            console.log(response.data)
             sala = response.data
             let divSala = document.getElementById('salas')
-            let tarjetasSala = '<div class="columns">'
+            let tarjetasSala = `<table class="table"><thead>
+                                <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Nombre</th>
+                                </tr>
+                            </thead>
+                            <tbody>`
 
             for (let i = 0; i < sala.length; i++) {
                 tarjetasSala += `
-                <div class="column is-one-fifth">
-                        <div class="card">
-                            <header class="card-header">
-                                <p class="card-header-title">
-                                    ${i + 1}. ${sala[i].nombre}
-                                </p>
-                            </header>
-                        </div>
-                </div>
-                `
+                                <tr>
+                                <th scope="row">${i+1}</th>
+                                <td>${sala[i].nombre}</td>
+                                </tr>
+                            `
             }
-            tarjetasSala += '</div>'
+            tarjetasSala +=`</tbody>
+            </table>`
             divSala.innerHTML = tarjetasSala
 
         })
@@ -32,7 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 window.addEventListener('DOMContentLoaded', event => {
 
-    // Navbar shrink function
     var navbarShrink = function () {
         const navbarCollapsible = document.body.querySelector('#mainNav');
         if (!navbarCollapsible) {
@@ -46,13 +47,10 @@ window.addEventListener('DOMContentLoaded', event => {
 
     };
 
-    // Shrink the navbar 
     navbarShrink();
 
-    // Shrink the navbar when page is scrolled
     document.addEventListener('scroll', navbarShrink);
 
-    // Activate Bootstrap scrollspy on the main nav element
     const mainNav = document.body.querySelector('#mainNav');
     if (mainNav) {
         new bootstrap.ScrollSpy(document.body, {
@@ -61,7 +59,6 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     };
 
-    // Collapse responsive navbar when toggler is visible
     const navbarToggler = document.body.querySelector('.navbar-toggler');
     const responsiveNavItems = [].slice.call(
         document.querySelectorAll('#navbarResponsive .nav-link')
