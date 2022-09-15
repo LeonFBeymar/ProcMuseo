@@ -12,6 +12,6 @@ const TurnoSchema = new mongoose.Schema({
     }
 )
 
-const Turno = mongoose.model('Usuario', TurnoSchema)
+const Turno = mongoose.model('Turno', TurnoSchema)
 
 export default Turno
