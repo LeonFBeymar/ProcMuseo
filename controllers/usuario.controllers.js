@@ -23,9 +23,7 @@ export const actualizarUsuario = async (req, res) => {
     try {
         let idUsuario = req.params.id
         let usuario = req.body
-        //busco y actualizo el Usuario
         await Usuario.findOneAndUpdate({ id: idUsuario }, usuario)
-        //busco el Usuario modificado por el id
         const UsuarioResponse = await Usuario.findOne({ id: idUsuario })
         res.send(UsuarioResponse)
     } catch (err) {
@@ -36,7 +34,6 @@ export const actualizarUsuario = async (req, res) => {
 export const eliminarUsuario = async (req, res) => {
     try {
         let idUsuario = req.params.id
-        //busco el Usuario con el id y lo elimino
         await Usuario.findOneAndRemove({ id: idUsuario })
         res.status(204).send()
     } catch (err) {
